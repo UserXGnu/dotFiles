@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+_SYS_TIMES_H	/usr/include/sys/times.h	23;"	d
+__need_clock_t	/usr/include/sys/times.h	27;"	d
+tms	/usr/include/sys/times.h	/^struct tms$/;"	s
+tms::tms_cstime	/usr/include/sys/times.h	/^    clock_t tms_cstime;		\/* System CPU time of dead children.  *\/$/;"	m	struct:tms	access:public
+tms::tms_cutime	/usr/include/sys/times.h	/^    clock_t tms_cutime;		\/* User CPU time of dead children.  *\/$/;"	m	struct:tms	access:public
+tms::tms_stime	/usr/include/sys/times.h	/^    clock_t tms_stime;		\/* System CPU time.  *\/$/;"	m	struct:tms	access:public
+tms::tms_utime	/usr/include/sys/times.h	/^    clock_t tms_utime;		\/* User CPU time.  *\/$/;"	m	struct:tms	access:public
+tms_cstime	/usr/include/sys/times.h	/^    clock_t tms_cstime;		\/* System CPU time of dead children.  *\/$/;"	m	struct:tms	access:public
+tms_cutime	/usr/include/sys/times.h	/^    clock_t tms_cutime;		\/* User CPU time of dead children.  *\/$/;"	m	struct:tms	access:public
+tms_stime	/usr/include/sys/times.h	/^    clock_t tms_stime;		\/* System CPU time.  *\/$/;"	m	struct:tms	access:public
+tms_utime	/usr/include/sys/times.h	/^    clock_t tms_utime;		\/* User CPU time.  *\/$/;"	m	struct:tms	access:public
