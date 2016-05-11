@@ -32,7 +32,6 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec terminator -p i3profile
 #bindsym $mod+t exec terminator
-#bindsym $mod+Return exec cool-retro-term
 bindsym $mod+Return exec terminator
 
 # kill focused window
@@ -174,10 +173,10 @@ bar {
     tray_output eDP1
 
     colors {
-        separator #aaaaaa
-        background #000000
-        statusline #4595DA
-#   
+    #    separator #099E4C
+    #    background #000000
+    #    statusline #0CCE6A
+    
 #        focused_workspace #13FFA7 #099E6A #000000
 #        active_workspace #13FFA7 #099E6A #000000
 #        inactive_workspace #0CCE6A #0CCE6A #000000
@@ -204,16 +203,16 @@ bar {
 
     tray_output eDP1
 
- #   colors {
- #       separator #099E4C
- #       background #030C07
- #       statusline #0CCE6A
- #   
- #       focused_workspace #13FFA7 #099E6A #000000
- #       active_workspace #13FFA7 #099E6A #000000
- #       inactive_workspace #0CCE6A #0CCE6A #000000
- #       urgent_workspace # #13FFA7 #ffffff
- #   }
+    colors {
+    #    separator #099E4C
+    #    background #030C07
+    #    statusline #0CCE6A
+    
+#        focused_workspace #13FFA7 #099E6A #000000
+#        active_workspace #13FFA7 #099E6A #000000
+#        inactive_workspace #0CCE6A #0CCE6A #000000
+#        urgent_workspace # #13FFA7 #ffffff
+    }
 
 
 #    colors {
@@ -249,8 +248,8 @@ floating_minimum_size 50 x 50
 floating_maximum_size 1280 x 720
 
 #exec --no-startup-id feh --bg-scale ~/Pictures/hq-wallpapers-for-desktop.jpg
+exec --no-startup-id feh --bg-scale ~/Picture/perfil.jpg
 #exec --no-startup-id feh --bg-scale ~/Pictures/LampiaoWallpaper.png
-exec --no-startup-id feh --bg-scale ~/Pictures/perfil.jpg
 
 
 exec --no-startup-id amixer set Master 50%
@@ -262,12 +261,10 @@ exec --no-startup-id amixer set Master unmute
 exec xcompmgr -cfF -t-9 -l-11 -r9 -o.95 -D6
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
-exec --no-startup-id xmms2d > /dev/null &
+exec --no-startup-id xmms2d > /dev/null
 #exec xcompmgr --replace
 
 #hide_edge_borders both
-
-new_window pixel 1
 
 workspace 1 output eDP1
 workspace 2 output eDP1
