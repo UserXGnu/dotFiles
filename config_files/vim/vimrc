@@ -100,11 +100,17 @@ set tags+=~/.vim/tags/fcntl.tags
 set tags+=~/.vim/tags/times.tags
 set tags+=~/.vim/tags/ioctl.tags
 
+set t_Co=256
+
+"set t_AB=^[[48;5;%dm
+"set t_AF=^[[38;5;%dm
+
 " build tags of your own project with Ctrl-F12
 map <C-F12> :!ctags -R -I --sort=yes --C-kinds=+p --fields=+iaS --extra=+q -f local.tags .<CR>
 map <C-F11> :!ctags -R -I --append=true --sort=yes --c-kinds=+p --fields=+iaS --extra=+q local.tags /usr/include/gtk-3.0/
 "map <C-F10> :!ctags -R -I --append=true --sort=yes --c-kinds=+p --fields=+iaS --extra=+q /usr/include/
-map <C-t> :ConqueTerm bash <CR>
+map td :ConqueTermSplit zsh <CR>
+map ts :ConqueTermVSplit zsh <CR>
 map <C-r> :resize +5 <CR>
 map <C-e> :resize -5 <CR>
 map <C-v> :vertical resize -5 <CR>
@@ -115,40 +121,18 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
-nmap <F8> :TagbarToggle<CR>
+nmap <C-m> :TagbarOpenAutoClose<CR>
 
 "map <C-J> <C-W>j<C-W>_
 "map <C-K> <C-W>k<C-W>_
-map <C-Right> :tabnext<CR>
-map <C-Left> :tabprev<CR>
+"map <C-Right> :tabnext<CR>
+"map <C-Left> :tabprev<CR>
+map <C-Right> :bn<CR>
+map <C-Left> :bp<CR>
 
 map <C-a> :%y<CR>
 
-"
-" " OmniCppComplete
-"let OmniCpp_NamespaceSearch = 1
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_ShowAccess = 1
-"let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-"let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-"let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-"automatically open and close the popup menu / preview window
-"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-"set completeopt=menuone,menu,longest,preview
-"
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType c set omnifunc=ccomplete#Complete
-"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
-"autocmd FileType cpp set omnifunc=cppcomplete#CompleteCPP
-
-" ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q -f
+map bd :bd<CR>
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -215,17 +199,19 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabed = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
 
+set laststatus=2
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 "colorscheme colorsbox-stbright
 
 " Text editing
@@ -244,9 +230,11 @@ set wildmenu
 set wildmode=longest:full,full
 
 " Color scheme
-set background=dark
+"set background=dark
 syntax enable
-colorscheme sunburst
+"colorscheme sunburst
+colorscheme jellybeans
+
 if has('gui_macvim')
 	set transparency=10
 endif
@@ -257,19 +245,36 @@ set shell=sh
 " vim-plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'jamessan/vim-gnupg'
+Plug 'sudo.vim'
+Plug 'powerline/powerline'
+Plug 'suan/vim-instant-markdown'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'OmniCppComplete'
+Plug 'AutoComplPop'
+Plug 'tpope/vim-git'
+Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-rails'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'bling/vim-airline'
+Plug 'powerline/powerline'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'fatih/vim-go'
-Plug 'mustache/vim-mustache-handlebars'
+"Plug 'fatih/vim-go'
+"Plug 'mustache/vim-mustache-handlebars'
 Plug 'evidens/vim-twig'
 Plug 'Shutnik/jshint2.vim'
 
 call plug#end()
 
 " NERDTree
-map <c-\> :NERDTreeToggle<CR>
-
+map <c-n> :NERDTreeToggle<CR>
+let g:nerdtree_tabs_autoclose = 1
 " ctrlp
 autocmd VimEnter * silent! unmap <c-p>|map <c-p> :CtrlPMixed<CR>
 
@@ -282,6 +287,10 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 	\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 	\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-
 ""let g:airline_powerline_fonts = 1
-""set guifont=DejaVu\ Sans:12
+""set guifont=DejaVu\ Sans:120
+
+"hi Normal ctermbg=none
+hi LineNr ctermbg=none   ctermfg=110
+
+
