@@ -370,23 +370,25 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # Mute
 
 bar {
   #        mode hide
-
+	font pango:Inconsolata 8
+	position top
+	tray_output none
+    status_command bumblebee-status -m nic disk:home load cpu memory battery date time pasink pasource dnf -p interval=2.5 time.format="%H:%M CW %V" date.format="%a, %b %d %Y" home.path=/home -t gruvbox-powerline
     output eDP1
-    position top
-    status_command i3status
+    #status_command i3status
 
-    tray_output eDP1
+    #tray_output eDP1
 
-    colors {
-        separator #aaaaaa
-        background #000000
-        statusline #4595DA
+    #colors {
+    #    separator #aaaaaa
+    #    background #000000
+    #    statusline #4595DA
 #   
 #        focused_workspace #13FFA7 #099E6A #000000
 #        active_workspace #13FFA7 #099E6A #000000
 #        inactive_workspace #0CCE6A #0CCE6A #000000
 #        urgent_workspace # #13FFA7 #ffffff
-    }
+    #}
 
 #   colors {
 #        separator #676767
